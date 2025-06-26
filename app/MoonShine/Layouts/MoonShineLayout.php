@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\MoonShine\Layouts;
 
 use MoonShine\Laravel\Layouts\AppLayout;
+use MoonShine\Laravel\Layouts\CompactLayout;
 use MoonShine\ColorManager\ColorManager;
 use MoonShine\Contracts\ColorManager\ColorManagerContract;
 use MoonShine\Laravel\Components\Layout\{Locales, Notifications, Profile, Search};
@@ -31,6 +32,7 @@ use MoonShine\UI\Components\{Breadcrumbs,
     Layout\Wrapper,
     When};
 use App\MoonShine\Resources\PegawaiResource;
+use App\MoonShine\Pages\LaporanSuratKeluarPage;
 use MoonShine\MenuManager\MenuItem;
 use MoonShine\MenuManager\MenuGroup;
 use App\MoonShine\Resources\PerjalananDinasResource;
@@ -41,7 +43,7 @@ use App\MoonShine\Resources\UsulPensiunResource;
 use App\MoonShine\Resources\ArsipSuratKeluarResource;
 use App\MoonShine\Resources\ArsipSuratMasukResource;
 
-final class MoonShineLayout extends AppLayout
+final class MoonShineLayout extends CompactLayout
 {
     protected function assets(): array
     {
@@ -65,6 +67,9 @@ final class MoonShineLayout extends AppLayout
             MenuGroup::make('Persuratan', [
                 MenuItem::make('Arsip Surat Keluar', ArsipSuratKeluarResource::class),
                 MenuItem::make('Arsip Surat Masuk', ArsipSuratMasukResource::class),
+            ]),
+            MenuGroup::make('Laporan', [
+                MenuItem::make('Laporan Surat Keluar', LaporanSuratKeluarPage::class),
             ]),
             ...parent::menu(),
         ];
