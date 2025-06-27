@@ -89,4 +89,16 @@ final class MoonShineLayout extends CompactLayout
     {
         return parent::build();
     }
+
+    protected function getFooterMenu(): array
+    {
+        return [
+            'https://example.com' => 'Custom link',
+        ];
+    }
+ 
+    protected function getFooterCopyright(): string
+    {
+        return 'MoonShine';
+    }
 }
