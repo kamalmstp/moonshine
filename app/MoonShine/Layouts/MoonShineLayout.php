@@ -33,6 +33,7 @@ use MoonShine\UI\Components\{Breadcrumbs,
     When};
 use App\MoonShine\Resources\PegawaiResource;
 use App\MoonShine\Pages\LaporanSuratKeluarPage;
+use App\MoonShine\Pages\LaporanPegawai;
 use MoonShine\MenuManager\MenuItem;
 use MoonShine\MenuManager\MenuGroup;
 use App\MoonShine\Resources\PerjalananDinasResource;
@@ -43,7 +44,7 @@ use App\MoonShine\Resources\UsulPensiunResource;
 use App\MoonShine\Resources\ArsipSuratKeluarResource;
 use App\MoonShine\Resources\ArsipSuratMasukResource;
 
-final class MoonShineLayout extends CompactLayout
+final class MoonShineLayout extends AppLayout
 {
     protected function assets(): array
     {
@@ -70,6 +71,8 @@ final class MoonShineLayout extends CompactLayout
             ]),
             MenuGroup::make('Laporan', [
                 MenuItem::make('Laporan Surat Keluar', LaporanSuratKeluarPage::class),
+                MenuItem::make('Laporan Pegawai', LaporanPegawai::class),
+                
             ]),
             ...parent::menu(),
         ];
